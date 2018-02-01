@@ -9,8 +9,8 @@ import org.sonar.wsclient.services.ResourceQuery;
 
 
 public class RetrieveStats {
-    static String host = "http://192.9.200.104:9000";
-    static String resourceKey = "com.axisbank:gbm";
+    static String host = "http://yy.yy.yy.yy:9000";
+    static String resourceKey = "com.pbmbank:pbm";
     static String[] MEASURES_TO_GET = new String[]{"new_code_smells", "new_bugs", 
                                                    "new_vulnerabilities", };
  
