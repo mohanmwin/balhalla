@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>io.fabric8.examples</groupId>
+  <artifactId>camel-rest</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Fabric8 :: Examples :: Camel REST</name>
+  <description>RESTful WebService Example using JAX-RS</description>
+
+  <properties>
+    <maven-jar-plugin.version>2.6</maven-jar-plugin.version>
+    <exec-maven-plugin.version>1.4.0</exec-maven-plugin.version>
+
+    <camel.version>2.15.2</camel.version>
+    <weld.version>2.2.14.Final</weld.version>
+    <jackson.version>2.5.4</jackson.version>
+    <slf4j.version>1.6.6</slf4j.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-netty4-http</artifactId>
+      <version>${camel.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.camel</groupId>
+      <artifactId>camel-cdi</artifactId>
+      <version>${camel.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.weld.se</groupId>
+      <artifactId>weld-se-core</artifactId>
+      <version>${weld.version}</version>
+    </dependency>
+
+    <!-- use log4j as logger -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>${slf4j.version}</version>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven-jar-plugin.version}</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <mainClass>org.jboss.weld.environment.se.StartMain</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${exec-maven-plugin.version}</version>
+        <configuration>
+          <mainClass>org.jboss.weld.environment.se.StartMain</mainClass>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
